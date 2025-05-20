@@ -1,0 +1,28 @@
+{% assign announcement_text = block.settings.announcement_text %}
+{% assign background_color = block.settings.background_color %}
+
+<div style="background-color:{{ background_color }}; padding: 10px; text-align: center;">
+  <span>{{ announcement_text }}</span>
+</div>
+
+{% schema %}
+{
+  "name": "Collection Blocks",
+  "target": "section",
+  "available_if": "{{ app.metafields.applicationInstallation.free_collection}}",
+  "settings": [
+    {
+      "type": "text",
+      "id": "announcement_text",
+      "label": "Announcement Text",
+      "default": "Your announcement text here"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#ffffff"
+    }
+  ]
+}
+{% endschema %}
